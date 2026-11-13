@@ -93,7 +93,7 @@ Wie du ein CI-Log liest: [Hilfe – CI-Log lesen](../hilfe/ci-log-lesen.md)
 <summary>Lösung anzeigen</summary>
 
 1. Schritt **4 · Port 8085 prüfen**.
-2. `Kein Service in deiner compose.yml veröffentlicht den Host-Port 8085. Aktuell veröffentlicht: web → 8080:80` (bei Kuma-Bonus zusätzlich `kuma → 3001:3001`).
+2. `Kein Service in deiner compose.yml veröffentlicht den Host-Port 8085. Aktuell veröffentlicht: web → 8080:80`. Mit Kuma-Bonus steht dort `kuma → 3001:3001, web → 8080:80`.
 3. Der Stack ist technisch in Ordnung, erfüllt aber die **neue Anforderung** der Firma nicht: Der Webserver muss auf dem Host-Port 8085 erreichbar sein, er veröffentlicht aber 8080. Ein automatischer Test prüft genau solche vereinbarten Anforderungen.
 4. Die Schritte 5–7 wurden übersprungen: Ein Job bricht nach dem ersten fehlgeschlagenen Schritt ab. Die Schritte 8 (Steckbrief), 9 (Logs) und 10 (Aufräumen) laufen trotzdem, weil sie in der Workflow-Datei mit `if: always()` bzw. `if: failure()` markiert sind.
 

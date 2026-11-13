@@ -113,7 +113,7 @@ git log --oneline --graph --all
 <details>
 <summary>Lösung anzeigen</summary>
 
-1. Das Volume `./html` war noch auf `/usr/share/nginx/html` eingebunden. Diesen Ordner benutzt Apache nicht. Apache liefert deshalb seine eingebaute Standardseite (`<html><body><h1>It works!</h1></body></html>`) aus. Schritt **7 · Inhalt prüfen** findet den Unterschied zu `html/index.html`.
+1. Das Volume `./html` war noch auf `/usr/share/nginx/html` eingebunden. Diesen Ordner benutzt Apache nicht. Apache liefert deshalb seine eingebaute Standardseite aus (Titel „It works! Apache httpd“, Text „It works!“). Schritt **7 · Inhalt prüfen** findet den Unterschied zu `html/index.html`.
 2. Zum Beispiel:
 
    ```yaml
