@@ -23,6 +23,8 @@ gitGraph
 
 `main` (oben) ist der Betriebsstand mit nginx und bleibt stabil. Auf `dev` (unten) läuft der Umbau auf Apache und darf zwischendurch rot sein.
 
+> **Ab jetzt committest du nur noch auf `dev`.** `main` bleibt bis zum Merge in Phase 6 unverändert. Ist deine `antworten.md` aus Phase 4 noch nicht auf `main`? Dann hole das **vor** Schritt 1 nach.
+
 ## Schritt 1: Branch anlegen und wechseln
 
 ```bash

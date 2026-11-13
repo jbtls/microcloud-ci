@@ -20,6 +20,8 @@
    - ✅ grüner Haken = Step erfolgreich
    - ❌ rotes X = **hier** ist es passiert, aufklappen und von unten nach oben lesen
    - ⊘ durchgestrichen = übersprungen, weil ein Step davor fehlgeschlagen ist
+
+   Der **erste rote** Step ist der aussagekräftige. Grüne Steps davor heißen nicht, dass dort alles stimmt: Jeder Step prüft nur seinen Teil. Beispiel: Step 6 ist schon grün, wenn *irgendeine* Seite antwortet, auch die Standardseite des Webservers. Ob es **deine** Seite ist, prüft erst Step 7.
 5. Bei Fehlern zeigt Step **9 · Container-Logs** die Ausgabe der Container, z. B. Fehlermeldungen des Webservers.
 
 ## Den Fehler beheben

@@ -2,7 +2,7 @@
 # DoD 5 · Pull Request
 #   Erfüllt, wenn der zuletzt gemergte Pull Request von dev nach main
 #   erst gemergt wurde, NACHDEM der Test "Compose-Stack testen (Port 8085)"
-#   für seinen letzten Commit grün war.
+#   für seinen letzten Commit grün war und der PR mindestens eine Datei ändert.
 # Fragt nur die GitHub-API ab (gespeicherte Check-Ergebnisse), braucht keinen Checkout-Inhalt.
 set -uo pipefail
 source "$(dirname "$0")/gemeinsam.sh"
@@ -32,9 +32,21 @@ SHA=$(jq -r '.head.sha' <<<"$PR")
 GEMERGT_UM=$(jq -r '.merged_at' <<<"$PR")
 ok "Pull Request gemergt" "#$NR (dev → main) am $GEMERGT_UM"
 
+# Der Pull Request muss tatsächlich Dateien ändern (keine leeren Commits)
+GEAENDERT=$(api "repos/${GITHUB_REPOSITORY}/pulls/${NR}" | jq -r '.changed_files // 0')
+if [ "${GEAENDERT:-0}" -ge 1 ]; then
+  ok "Pull Request ändert Dateien" "$GEAENDERT Datei(en)"
+else
+  fehlt "Pull Request ohne Änderung" "Pull Request #$NR ändert keine Datei. Committe die Apache-Umstellung auf dev und stelle einen neuen Pull Request."
+fi
+
 NAME_URI=$(jq -rn --arg s "$CHECK_NAME" '$s|@uri')
 if ! CHECKS=$(api "repos/${GITHUB_REPOSITORY}/commits/${SHA}/check-runs?check_name=${NAME_URI}&per_page=100"); then
   fehlt "GitHub-API" "Die Check-Ergebnisse konnten nicht abgefragt werden."
+  ende
+fi
+if [ "$(jq -r '.check_runs | length' <<<"$CHECKS")" -eq 0 ]; then
+  fehlt "Kein Testlauf gefunden" "Für Commit ${SHA:0:7} gibt es keinen Lauf „$CHECK_NAME“. Wurde der Jobname in .github/workflows/microcloud-ci.yml geändert? DoD 5 erkennt den Test an diesem Namen."
   ende
 fi
 GRUEN_VORHER=$(jq -r --arg m "$GEMERGT_UM" '

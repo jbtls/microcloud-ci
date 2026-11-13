@@ -43,11 +43,13 @@ else
   fehlt "html/index.html fehlt" "Der Ordner html mit deiner index.html ist nicht committet (Phase 2)."
 fi
 
-KUMA=$(git ls-files kuma-data | head -n 1)
+# kuma-data/ in jedem Unterordner suchen (nicht nur im Hauptordner)
+KUMA=$(git ls-files | grep -E '(^|/)kuma-data/' | head -n 1)
 if [ -z "$KUMA" ]; then
   ok "Keine Laufzeitdaten (kuma-data/) im Repo"
 else
-  fehlt "Laufzeitdaten im Repo" "kuma-data/ ist committet ($KUMA). Entferne den Ordner aus Git: git rm -r --cached kuma-data, dann committen und pushen."
+  KUMA_ORDNER="${KUMA%%kuma-data/*}kuma-data"
+  fehlt "Laufzeitdaten im Repo" "kuma-data/ ist committet ($KUMA). Entferne den Ordner aus Git: git rm -r --cached $KUMA_ORDNER, dann committen und pushen."
 fi
 
 ende

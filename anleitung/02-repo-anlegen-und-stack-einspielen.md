@@ -16,7 +16,7 @@
    - *Include all branches:* **nicht** anhaken
 4. **Create repository**.
 
-Öffne in deinem neuen Repo den Tab **Actions**. Wahrscheinlich ist dort schon ein erster Lauf **rot** mit der Meldung *„Keine Compose-Datei gefunden“*. Das ist richtig so: Dein Stack fehlt ja noch.
+Öffne in deinem neuen Repo den Tab **Actions**. Wahrscheinlich ist dort schon ein erster Lauf (**Lauf 1**) **rot** in Schritt 2 mit der Meldung *„Keine Compose-Datei gefunden“*. Das ist richtig so: Dein Stack fehlt ja noch. Um diesen Lauf geht es in den Aufgaben unten **nicht**, sondern um Lauf 2 nach deinem Push (Schritt 6).
 
 > Die fünf DoD-Abzeichen oben im README sind jetzt rot oder grau, das heißt „noch nicht erfüllt“. Sie hinken bis zu 5 Minuten hinterher. Maßgeblich ist der Tab **Actions**.
 
@@ -80,7 +80,7 @@ git log --oneline
 
 1. Öffne auf GitHub den Tab **Actions**. Oben steht ein Lauf mit deiner Commit-Nachricht.
 2. Klicke ihn an, dann den Job **Compose-Stack testen (Port 8085)**.
-3. Warte, bis er fertig ist. Er wird **rot**. 😱 Keine Sorge, das ist Absicht.
+3. Warte, bis dieser **Lauf 2** fertig ist. Er wird **rot**. 😱 Keine Sorge, das ist Absicht. Diesmal liegt dein Stack im Repo, der Lauf scheitert also an einer anderen Stelle als Lauf 1.
 
 **Checkpoint DoD:** Das Abzeichen **DoD 1 · Repo** ist jetzt grün, denn dein Repo ist öffentlich, aus der Vorlage und enthält `compose.yml` und `html/`. **DoD 2 · Microcloud-CI** bleibt rot, bis Phase 3 erledigt ist.
 
@@ -88,7 +88,7 @@ Wie du ein CI-Log liest: [Hilfe – CI-Log lesen](../hilfe/ci-log-lesen.md)
 
 ## Aufgaben
 
-1. In **welchem Schritt** (Nummer und Name) schlägt der Lauf fehl?
+1. In **welchem Schritt** (Nummer und Name) schlägt Lauf 2 fehl?
 2. Notiere die **Fehlermeldung** wörtlich.
 3. Erkläre mit eigenen Worten, **warum** der Test fehlschlägt, obwohl dein Stack in Modul 4 doch funktioniert hat.
 4. Welche Schritte wurden danach **übersprungen**, welche trotzdem ausgeführt? Woran liegt das?

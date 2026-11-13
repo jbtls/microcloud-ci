@@ -83,10 +83,10 @@ Dein Projekt ist fertig, wenn **alle acht** Punkte erfüllt sind. Die Punkte 1�
 | **2** | Auf `main` veröffentlicht dein Stack **Port 8085** und liefert **deine** `html/index.html` aus. | Abzeichen **DoD 2 · Microcloud-CI** | 3 |
 | **3** | Die Umstellung wird auf einem eigenen Branch **`dev`** mit eigener Änderung vorbereitet. | Abzeichen **DoD 3 · Branch dev** | 5 |
 | **4** | Auf `main` läuft der Webserver mit **Apache httpd**. | Abzeichen **DoD 4 · Apache auf main** | 6 |
-| **5** | Die Umstellung ist über einen **Pull Request** von `dev` nach `main` gemergt worden, **nachdem** der Test grün war. | Abzeichen **DoD 5 · Pull Request** | 6 |
+| **5** | Die Umstellung ist über einen **Pull Request** von `dev` nach `main` gemergt worden, **nachdem** der Test für den **letzten Commit** des Pull Requests grün war. | Abzeichen **DoD 5 · Pull Request** | 6 |
 | **6** | Dein LXC-Container läuft mit genau dem Stand von `main` (`git pull` + `docker compose up -d`). | prüft die Lehrkraft (z. B. `curl -I` im Unterricht) | 6 |
 | **7** | Die Fragen aus [Phase 4](anleitung/04-workflow-verstehen.md) sind beantwortet (Heft oder `antworten.md` im Repo). | prüft die Lehrkraft | 4 |
-| **8** | Alle Pflichtkarten im [Kanban-Board](#dein-lern-kanban-board) stehen auf **Done**. | prüft die Lehrkraft (Board zeigen) | alle |
+| **8** | Alle Karten im [Kanban-Board](#dein-lern-kanban-board) **außer den Zusatzkarten A–C** stehen auf **Done**. | prüft die Lehrkraft (Board zeigen) | alle |
 
 **Abgabe (Moodle):** der Link zu deinem Repository (alle fünf Abzeichen grün) und der Link zu deinem gemergten Pull Request.
 
@@ -94,7 +94,7 @@ Dein Projekt ist fertig, wenn **alle acht** Punkte erfüllt sind. Die Punkte 1�
 
 ## Expertenauftrag (nur die Anforderungen)
 
-> Bringe deinen Microcloud-Stack aus Modul 4 in ein öffentliches GitHub-Repository, das du aus dieser Vorlage erzeugst, und arbeite ab sofort nur noch über Git. Der vorgegebene Workflow muss auf `main` grün sein. Die Dienste werden einheitlich auf Port 8085 veröffentlicht. Der Webserver wird auf einem Branch `dev` auf Apache httpd umgestellt und erst nach grünem Test per Pull Request in `main` übernommen. Dein LXC-Container betreibt am Ende den Stand von `main`. Gepusht wird per SSH-Schlüssel.
+> Bringe deinen Microcloud-Stack aus Modul 4 in ein öffentliches GitHub-Repository, das du aus dieser Vorlage erzeugst, und arbeite ab sofort nur noch über Git. Der vorgegebene Workflow muss auf `main` grün sein. Die Dienste werden einheitlich auf Port 8085 veröffentlicht. Der Webserver wird auf einem Branch `dev` auf Apache httpd umgestellt und erst nach grünem Test (für den letzten Commit) per Pull Request in `main` übernommen. Dein LXC-Container betreibt am Ende den Stand von `main`. Gepusht wird per SSH-Schlüssel.
 
 Wenn du fertig bist: Erkläre in einer `antworten.md`, **was** der Workflow in jedem Schritt prüft und **warum** Schritt 7 die Inhalte vergleicht, statt nur den Port zu testen.
 
@@ -107,11 +107,11 @@ Wenn du fertig bist: Erkläre in einer `antworten.md`, **was** der Workflow in j
 | **HA** | Dein GitHub-Account ist eingerichtet, die E-Mail bestätigt, **2FA aktiv**, die Recovery-Codes sind gesichert. *(Hausaufgabe vor der Projektwoche)* | zu Hause | [00 – Hausaufgabe GitHub-Account](anleitung/00-hausaufgabe-github-account.md) |
 | **0** | Du kennst Ziel, Ablauf und *Definition of Done*. Dein Kanban-Board ist geöffnet und die Karte *Projektstart* steht in **In Bearbeitung**. | 30′ | [Lern-Kanban-Board](#dein-lern-kanban-board) (Einstieg im Plenum) |
 | **1** | Auf deinem LXC ist Git eingerichtet (`git config`), ein eigener **SSH-Schlüssel** ist bei GitHub hinterlegt und `ssh -T git@github.com` begrüßt dich mit deinem Benutzernamen. | 30′ | [01 – SSH-Schlüssel](anleitung/01-ssh-key.md) |
-| **2** | Dein öffentliches Repo ist aus der Vorlage erzeugt und nach `~/microcloud` geklont. Dein Stack aus Modul 4 ist committet und gepusht. Der erste CI-Lauf ist **rot** – und du kannst erklären, warum. | 45′ | [02 – Repo anlegen & Stack einspielen](anleitung/02-repo-anlegen-und-stack-einspielen.md) |
+| **2** | Dein öffentliches Repo ist aus der Vorlage erzeugt und nach `~/microcloud` geklont. Dein Stack aus Modul 4 ist committet und gepusht. Der CI-Lauf **nach deinem Push** ist **rot** (dein Stack nutzt noch den alten Port), und du kannst erklären, an welchem Schritt und warum. *(Ein roter Lauf direkt nach dem Erstellen des Repos, Schritt 2, ist normal und zählt hier nicht.)* | 45′ | [02 – Repo anlegen & Stack einspielen](anleitung/02-repo-anlegen-und-stack-einspielen.md) |
 | **3** | Der Stack veröffentlicht Port **8085**, läuft lokal und die CI ist **grün**. | 30′ | [03 – Port anpassen, erster grüner Build](anleitung/03-port-anpassen-erster-gruener-build.md) |
 | **4** | Du kannst jeden Schritt des Workflows erklären und die CI/CD-Fachbegriffe zuordnen. | 45′ | [04 – Den Workflow verstehen](anleitung/04-workflow-verstehen.md) |
 | **5** | Auf dem Branch `dev` läuft **Apache httpd**, liefert deine Seite aus und die CI auf `dev` ist **grün**. `main` ist unverändert. | 90′ | [05 – dev-Branch: Umstieg auf Apache](anleitung/05-dev-branch-apache.md) |
-| **6** | Ein Pull Request `dev → main` ist nach grünem Test gemergt, dein LXC betreibt den neuen Stand von `main`. | 45′ | [06 – Pull Request & Merge](anleitung/06-pull-request-und-merge.md) |
+| **6** | Ein Pull Request `dev → main` ist nach grünem Test für seinen letzten Commit gemergt, dein LXC betreibt den neuen Stand von `main`. | 45′ | [06 – Pull Request & Merge](anleitung/06-pull-request-und-merge.md) |
 | **+** | Zusatz für Schnelle: siehe unten. | Rest | [07 – Zusatz](anleitung/07-zusatz-cicd-test.md) |
 
 ### Hilfeseiten

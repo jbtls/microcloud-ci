@@ -5,7 +5,7 @@
 > **Ziel:** Du kannst erklären, was die CI in jedem Schritt prüft, und die Fachbegriffe von CI/CD zuordnen.
 > **Zeit:** ca. 45 Minuten · **Material:** [`.github/workflows/microcloud-ci.yml`](../.github/workflows/microcloud-ci.yml), [Begriffe CI/CD](../hilfe/begriffe-cicd.md)
 
-Beantworte die Fragen im Heft oder in einer neuen Datei `antworten.md` in deinem Repo. Wenn du die Datei nimmst: committen und pushen nicht vergessen, das ist gleich noch eine Übung.
+Beantworte die Fragen im Heft oder in einer neuen Datei `antworten.md` in deinem Repo. Wenn du die Datei nimmst: committen und pushen nicht vergessen, das ist gleich noch eine Übung. Committe sie auf **`main`**, und zwar **bevor** du in Phase 5 den Branch `dev` anlegst. Ab Phase 5 bleibt `main` bis zum Merge unverändert.
 
 ## Teil A: Aufbau der Workflow-Datei
 

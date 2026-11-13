@@ -2,13 +2,17 @@
 # Microcloud-CI – automatischer Test deines Compose-Stacks
 #
 # Dieser Workflow wird von der Lehrkraft vorgegeben. Er prüft bei jedem Push
-# (auf jeden Branch) und bei jedem Pull Request auf "main", ob dein Stack
-#   1. eine Compose-Datei hat,
-#   2. gültiges Compose-YAML ist,
-#   3. den Host-Port 8085 veröffentlicht,
-#   4. auf GitHubs Testrechner (Runner) startet,
-#   5. auf Port 8085 antwortet und
-#   6. genau deine Datei html/index.html ausliefert.
+# (auf jeden Branch) und bei jedem Pull Request auf "main" in 10 Schritten:
+#   1. Code auschecken
+#   2. Gibt es eine Compose-Datei?
+#   3. Ist sie gültiges Compose-YAML?
+#   4. Veröffentlicht ein Service den Host-Port 8085?
+#   5. Startet dieser Service auf GitHubs Testrechner (Runner)?
+#   6. Antwortet er auf Port 8085?
+#   7. Liefert er genau deine Datei html/index.html aus?
+#   8. Steckbrief in die Zusammenfassung schreiben (immer)
+#   9. Container-Logs anzeigen (nur bei Fehler)
+#  10. Aufräumen (immer)
 #
 # Kosten: In öffentlichen (public) Repositories sind Standard-Runner wie
 # "ubuntu-latest" kostenlos und verbrauchen kein Minutenkontingent.
@@ -32,6 +36,7 @@ env:
 
 jobs:
   stack-test:
+    # Diesen Namen NICHT ändern: DoD 5 erkennt den Test an genau diesem Namen.
     name: Compose-Stack testen (Port 8085)
     # In der Vorlage selbst (Template-Repository) liegt noch kein Stack –
     # dort wird der Test übersprungen. In deinem Repo läuft er immer.
@@ -63,7 +68,7 @@ jobs:
             echo "✅ $COMPOSE_DATEI ist gültiges Compose-YAML."
           else
             cat fehler.txt
-            echo "::error title=Ungültiges Compose-YAML::Docker Compose kann deine $COMPOSE_DATEI nicht lesen (Meldung siehe oben). Typische Ursachen: Tabs statt Leerzeichen, falsche Einrückung, fehlender Doppelpunkt."
+            echo "::error title=Ungültiges Compose-YAML::Docker Compose kann deine $COMPOSE_DATEI nicht lesen (Meldung siehe oben). Typische Ursachen: Tabs statt Leerzeichen, falsche Einrückung, fehlender Doppelpunkt, eine Variable wie \${WEB_PORT} ohne Standardwert (die .env auf deinem LXC liegt nicht im Repo, schreibe z. B. \${WEB_PORT:-8085})."
             exit 1
           fi
 
@@ -80,7 +85,7 @@ jobs:
               [ .services | to_entries[] | .key as $s
                 | .value.ports[]? | "\($s) → \(.published):\(.target)" ]
               | join(", ")' konfiguration.json)
-            echo "::error title=Port $ZIELPORT wird nicht veröffentlicht::Kein Service in deiner $COMPOSE_DATEI veröffentlicht den Host-Port $ZIELPORT. Aktuell veröffentlicht: ${GEFUNDEN:-keine Ports}. Erinnerung: Bei ports gilt \"HOST-PORT:CONTAINER-PORT\"."
+            echo "::error title=Port $ZIELPORT wird nicht veröffentlicht::Kein Service in deiner $COMPOSE_DATEI veröffentlicht den Host-Port $ZIELPORT. Aktuell veröffentlicht: ${GEFUNDEN:-keine Ports}. Erinnerung: Bei ports gilt \"HOST-PORT:CONTAINER-PORT\". Nutzt du eine Variable, braucht sie einen Standardwert, z. B. \${WEB_PORT:-8085}, denn deine .env liegt nicht im Repo."
             exit 1
           fi
           echo "SERVICE=$SERVICE" >> "$GITHUB_ENV"

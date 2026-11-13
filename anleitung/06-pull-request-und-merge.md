@@ -27,6 +27,8 @@ Unten auf der PR-Seite erscheint der Bereich **Checks**. Dort läuft der Test *C
 - ❌ rot = **nicht mergen!** Erst auf `dev` korrigieren und pushen. Der PR aktualisiert sich automatisch.
 - ✅ grün = bereit zum Merge
 
+> **Grün für den letzten Commit.** Jeder weitere Push auf `dev` (z. B. ein Tippfehler in der `index.html`) startet einen **neuen** Check. Gemergt wird erst, wenn der Check für den **letzten** Commit des Pull Requests grün ist. Ein älterer grüner Lauf zählt nicht, DoD 5 bliebe dann rot.
+
 Schau dir auch den Reiter **Files changed** an: Dort siehst du genau die Zeilen, die sich zwischen `main` und `dev` unterscheiden.
 
 ## Schritt 3: Mergen

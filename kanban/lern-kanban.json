@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "boardId": "board_lf10_kw47_microcloud_ci_v3",
+  "boardId": "board_lf10_kw47_microcloud_ci_v4",
   "config": {
     "title": "LF10 – Microcloud-Stack mit Git, GitHub und CI",
     "subtitle": "Projektwoche KW47 · 12ITS · Hausaufgabe in KW46",
@@ -236,7 +236,7 @@
       "phaseId": "kw47",
       "columnId": "todo",
       "title": "Repo aus der Vorlage erzeugen und Stack einspielen",
-      "body": "## Ziel\nDein Stack aus Modul 4 liegt in deinem eigenen, **öffentlichen** Repo und wird automatisch getestet.\n\n## Erwartung\nDer CI-Lauf wird **rot**. Das ist Absicht. Finde heraus, in welchem Schritt und warum.",
+      "body": "## Ziel\nDein Stack aus Modul 4 liegt in deinem eigenen, **öffentlichen** Repo und wird automatisch getestet.\n\n## Erwartung\nEs gibt zwei rote Läufe, beide sind Absicht:\n- **Lauf 1** direkt nach dem Erstellen des Repos: rot in Schritt 2, weil noch keine `compose.yml` im Repo liegt. Normal, zählt hier nicht.\n- **Lauf 2** nach deinem Push: Auch dieser wird **rot**. Finde heraus, in welchem Schritt und warum.",
       "estH": 0.75,
       "loggedM": 0,
       "order": 3,
@@ -267,7 +267,7 @@
         },
         {
           "id": "p2_5",
-          "text": "Roten Schritt und Fehlermeldung notiert und erklärt",
+          "text": "Roten Schritt von Lauf 2 (nach dem Push) notiert und erklärt",
           "done": false
         }
       ],
@@ -293,7 +293,7 @@
       "phaseId": "kw47",
       "columnId": "todo",
       "title": "Port 8085: der erste grüne Build",
-      "body": "## Ziel\nDer Stack veröffentlicht Port **8085**, läuft lokal und die CI ist **grün**.\n\n## Arbeitsablauf\nändern → lokal testen → `git add` / `git commit` → `git push` → CI prüft",
+      "body": "## Ziel\nDer Stack veröffentlicht Port **8085**, läuft lokal und die CI ist **grün**.\n\n## Arbeitsablauf\nändern → lokal testen → `git add` / `git commit` → `git push` → CI prüft\n\n## Achtung, Port-Mapping\nBei `ports` gilt `HOST-PORT:CONTAINER-PORT`. Links steht der Port, den die Firma vorgibt. Rechts steht der Port, auf dem der Webserver **im Container** lauscht. Schritt 4 prüft nur die linke Seite, ein falscher Container-Port fällt erst in Schritt 6 auf.",
       "estH": 0.5,
       "loggedM": 0,
       "order": 4,
@@ -347,7 +347,7 @@
       "phaseId": "kw47",
       "columnId": "todo",
       "title": "Den Workflow verstehen (Fragen A–C)",
-      "body": "## Ziel\nDu kannst jeden Schritt der Microcloud-CI erklären und die Fachbegriffe CI, Continuous Delivery und Continuous Deployment abgrenzen.\n\n## Material\n`.github/workflows/microcloud-ci.yml` und die Hilfeseite *Begriffe CI/CD*. Antworten ins Heft oder als `antworten.md` ins Repo.",
+      "body": "## Ziel\nDu kannst jeden Schritt der Microcloud-CI erklären und die Fachbegriffe CI, Continuous Delivery und Continuous Deployment abgrenzen.\n\n## Material\n`.github/workflows/microcloud-ci.yml` und die Hilfeseite *Begriffe CI/CD*. Antworten ins Heft oder als `antworten.md` ins Repo. Die Datei committest und pushst du auf **`main`**, **bevor** du in Phase 5 den Branch `dev` anlegst.",
       "estH": 0.75,
       "loggedM": 0,
       "order": 5,
@@ -375,6 +375,11 @@
           "id": "p4_4",
           "text": "Antworten mit der Lösung verglichen",
           "done": false
+        },
+        {
+          "id": "p4_5",
+          "text": "Antworten im Heft oder antworten.md auf main gepusht (DoD 7)",
+          "done": false
         }
       ],
       "resources": [
@@ -399,7 +404,7 @@
       "phaseId": "kw47",
       "columnId": "todo",
       "title": "Branch dev: Umstieg von nginx auf Apache httpd",
-      "body": "## Ziel\nAuf dem Branch `dev` läuft **Apache httpd**, liefert deine Seite aus und die CI auf `dev` ist **grün**. `main` bleibt unverändert.\n\n## Erwartung\nDer erste Versuch (nur das Image tauschen) wird **rot**. Warum? Recherchiere den Web-Ordner (Document Root) des httpd-Images.",
+      "body": "## Ziel\nAuf dem Branch `dev` läuft **Apache httpd**, liefert deine Seite aus und die CI auf `dev` ist **grün**. `main` bleibt unverändert: Ab jetzt committest du nur noch auf `dev`.\n\n## Erwartung\nDer erste Versuch (nur das Image tauschen) wird **rot**. Warum? Recherchiere den Web-Ordner (Document Root) des httpd-Images.\n\n## Tipp\nSchritt 6 kann grün sein, obwohl die falsche Seite ausgeliefert wird: Jeder Webserver hat eine Standardseite. Ob es **deine** `index.html` ist, prüft erst Schritt 7.",
       "estH": 1.5,
       "loggedM": 0,
       "order": 6,
@@ -457,7 +462,7 @@
       "phaseId": "kw47",
       "columnId": "todo",
       "title": "Pull Request dev → main: erst grün, dann mergen",
-      "body": "## Ziel\nDie Apache-Umstellung ist per Pull Request nach `main` übernommen, **nachdem** der Check grün war. Dein LXC betreibt den neuen Stand von `main`.",
+      "body": "## Ziel\nDie Apache-Umstellung ist per Pull Request nach `main` übernommen, **nachdem** der Check für den **letzten Commit** des Pull Requests grün war. Jeder weitere Push auf `dev` startet einen neuen Check, dann erneut warten. Dein LXC betreibt den neuen Stand von `main`.",
       "estH": 0.75,
       "loggedM": 0,
       "order": 7,
@@ -473,7 +478,7 @@
         },
         {
           "id": "p6_2",
-          "text": "Checks abgewartet, grün",
+          "text": "Check für den letzten Commit grün abgewartet (nach jedem weiteren Push erneut warten)",
           "done": false
         },
         {
@@ -515,7 +520,7 @@
       "phaseId": "kw47",
       "columnId": "todo",
       "title": "Abgabe: Definition of Done prüfen und in Moodle abgeben",
-      "body": "## Abgabe\n- Link zu deinem Repository\n- Link zu deinem gemergten Pull Request\n\nVorher alle Punkte der *Definition of Done* im README abhaken.",
+      "body": "## Abgabe\n- Link zu deinem Repository\n- Link zu deinem gemergten Pull Request\n\nVorher alle Punkte der *Definition of Done* im README abhaken. Für DoD 8 müssen alle Karten **außer den Zusatzkarten A–C** auf **Done** stehen.",
       "estH": 0.25,
       "loggedM": 0,
       "order": 8,
@@ -555,7 +560,7 @@
       "phaseId": "zus",
       "columnId": "todo",
       "title": "Zusatz A: Wiki-Projekt cicd-test (Release in die Registry)",
-      "body": "## Ziel\nEine Pipeline, die ein eigenes Image baut, testet und als Release in der GitHub Container Registry veröffentlicht (Continuous Delivery).\n\n## Hinweise\n- Fork **öffentlich** lassen\n- Im Fork im Tab *Actions* die Workflows freischalten\n- Bei Pull Requests als *base repository* den eigenen Fork wählen",
+      "body": "*Optional, nicht Teil der Definition of Done.*\n\n## Ziel\nEine Pipeline, die ein eigenes Image baut, testet und als Release in der GitHub Container Registry veröffentlicht (Continuous Delivery).\n\n## Hinweise\n- Fork **öffentlich** lassen\n- Im Fork im Tab *Actions* die Workflows freischalten\n- Bei Pull Requests als *base repository* den eigenen Fork wählen",
       "estH": 2,
       "loggedM": 0,
       "order": 9,
@@ -593,7 +598,7 @@
       "phaseId": "zus",
       "columnId": "todo",
       "title": "Zusatz B: Eigener CI-Test für Uptime Kuma",
-      "body": "## Ziel\nDer Workflow prüft zusätzlich, ob Uptime Kuma auf Port 3001 antwortet. Entwickelt auf einem eigenen Branch und per Pull Request gemergt.",
+      "body": "*Optional, nicht Teil der Definition of Done.*\n\n## Ziel\nDer Workflow prüft zusätzlich, ob Uptime Kuma auf Port 3001 antwortet. Entwickelt auf einem eigenen Branch und per Pull Request gemergt.",
       "estH": 1,
       "loggedM": 0,
       "order": 10,
@@ -632,7 +637,7 @@
       "phaseId": "zus",
       "columnId": "todo",
       "title": "Zusatz C: Release v1.0.0 erstellen",
-      "body": "## Ziel\nDer fertige Stand ist mit dem Tag `v1.0.0` markiert und als GitHub-Release mit Beschreibung veröffentlicht.",
+      "body": "*Optional, nicht Teil der Definition of Done.*\n\n## Ziel\nDer fertige Stand ist mit dem Tag `v1.0.0` markiert und als GitHub-Release mit Beschreibung veröffentlicht.",
       "estH": 0.5,
       "loggedM": 0,
       "order": 11,
