@@ -23,7 +23,7 @@
 
 | Begriff | Bedeutung | Beispiel in `microcloud-ci.yml` |
 |---|---|---|
-| **Workflow** | Automatisierter Ablauf, definiert in einer YAML-Datei unter `.github/workflows/` | `name: Microcloud-CI` |
+| **Workflow** | Automatisierter Ablauf, definiert in einer YAML-Datei unter `.github/workflows/` | `name: DoD 2 · Microcloud-CI` |
 | **Event / Trigger** | Ereignis, das den Workflow startet | `on: push`, `pull_request`, `workflow_dispatch` |
 | **Job** | Gruppe von Schritten, die auf **einem** Runner laufen | `stack-test` |
 | **Step** | Einzelner Schritt in einem Job: Befehl (`run:`) oder Action (`uses:`) | `4 · Port 8085 prüfen` |

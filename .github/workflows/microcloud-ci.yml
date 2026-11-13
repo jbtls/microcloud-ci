@@ -13,7 +13,7 @@
 # Kosten: In öffentlichen (public) Repositories sind Standard-Runner wie
 # "ubuntu-latest" kostenlos und verbrauchen kein Minutenkontingent.
 # ---------------------------------------------------------------------------
-name: Microcloud-CI
+name: DoD 2 · Microcloud-CI
 
 # Auslöser (Events): Wann startet dieser Workflow?
 on:

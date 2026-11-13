@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "boardId": "board_lf10_kw47_microcloud_ci_v2",
+  "boardId": "board_lf10_kw47_microcloud_ci_v3",
   "config": {
     "title": "LF10 – Microcloud-Stack mit Git, GitHub und CI",
     "subtitle": "Projektwoche KW47 · 12ITS · Hausaufgabe in KW46",
@@ -326,6 +326,11 @@
           "id": "p3_5",
           "text": "Webserver aus dem Steckbrief notiert",
           "done": false
+        },
+        {
+          "id": "p3_6",
+          "text": "Abzeichen DoD 1 und DoD 2 grün",
+          "done": false
         }
       ],
       "resources": [
@@ -427,6 +432,11 @@
           "id": "p5_5",
           "text": "CI auf dev grün, Steckbrief zeigt Apache",
           "done": false
+        },
+        {
+          "id": "p5_6",
+          "text": "Abzeichen DoD 3 grün",
+          "done": false
         }
       ],
       "resources": [
@@ -480,6 +490,11 @@
           "id": "p6_5",
           "text": "Reflexionsfragen beantwortet",
           "done": false
+        },
+        {
+          "id": "p6_6",
+          "text": "Abzeichen DoD 4 und DoD 5 grün: alle fünf Abzeichen grün",
+          "done": false
         }
       ],
       "resources": [
@@ -512,7 +527,7 @@
       "todos": [
         {
           "id": "abg_1",
-          "text": "Definition of Done vollständig erfüllt",
+          "text": "Definition of Done 1–8 erfüllt (alle fünf Abzeichen grün)",
           "done": false
         },
         {

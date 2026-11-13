@@ -51,6 +51,8 @@ git push -u origin dev
 
 Öffne den Tab **Actions**. Der Lauf für `dev` wird **rot**.
 
+> **Checkpoint DoD:** Das Abzeichen **DoD 3 · Branch dev** ist trotzdem schon grün. Es prüft nur, ob es den Branch `dev` mit einer eigenen Änderung gibt, nicht ob der Test darauf grün ist. Jedes Abzeichen prüft genau einen DoD-Punkt.
+
 1. In welchem Schritt scheitert er? Notiere die Fehlermeldung.
 2. Schau dir die `diff`-Ausgabe im Log an. Was liefert Apache stattdessen aus?
 3. Teste lokal und vergleiche:

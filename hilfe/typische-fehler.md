@@ -40,6 +40,19 @@
 | Symptom | Ursache | Lösung |
 |---|---|---|
 | Rot in Schritt 2 **direkt nach dem Erstellen** des Repos | Normal: Dein Repo enthält bis jetzt nur die Vorlage, noch keine `compose.yml`. | Weiter mit [Phase 2](../anleitung/02-repo-anlegen-und-stack-einspielen.md), Stack einspielen und pushen. |
-| Abzeichen zeigt einen **alten Stand** oder *no status* | Der Browser speichert das Abzeichen-Bild bis zu 5 Minuten zwischen. | Seite mit Strg+F5 neu laden. Der Tab **Actions** zeigt immer den aktuellen Stand. |
+| Abzeichen zeigt einen **alten Stand** | Der Browser speichert das Abzeichen-Bild bis zu 5 Minuten zwischen. | Seite mit Strg+F5 neu laden. Der Tab **Actions** zeigt immer den aktuellen Stand. |
+
+## Die DoD-Abzeichen: rot oder grau – was fehlt?
+
+Klick auf das Abzeichen, öffne den letzten Lauf und lies unter **Summary** den Steckbrief. Dort steht genau, welcher Prüfpunkt fehlt.
+
+| Abzeichen | Typische Ursache | Lösung |
+|---|---|---|
+| **DoD 1 · Repo** rot | Repo privat, kein Repo aus der Vorlage (z. B. Fork), `compose.yml` oder `html/index.html` nicht committet, oder `kuma-data/` committet | Steckbrief lesen. Bei `kuma-data/`: `git rm -r --cached kuma-data`, committen, pushen |
+| **DoD 2 · Microcloud-CI** rot | Der Test auf `main` schlägt fehl (Port, Container-Port, Volume-Pfad) | siehe Tabelle „Die CI“ oben |
+| **DoD 3 · Branch dev** grau | Es gibt noch keinen Branch `dev` auf GitHub | `git switch -c dev`, ändern, committen, `git push -u origin dev` |
+| **DoD 3 · Branch dev** rot | `dev` ist gepusht, enthält aber noch keine eigene Änderung | Auf `dev` die Umstellung committen und pushen |
+| **DoD 4 · Apache auf main** rot | Auf `main` läuft noch nginx, weil die Umstellung erst auf `dev` liegt | Pull Request `dev → main` nach grünem Test mergen (Phase 6) |
+| **DoD 5 · Pull Request** rot | Noch kein PR von `dev` nach `main` gemergt, **oder** er wurde gemergt, bevor der Test grün war | Auf `dev` korrigieren, neuen PR stellen, erst nach grünem Check mergen |
 
 Mehr dazu: [CI-Log lesen](ci-log-lesen.md)

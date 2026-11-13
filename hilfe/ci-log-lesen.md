@@ -6,7 +6,7 @@
 
 | Ort | Was du siehst |
 |---|---|
-| **Abzeichen** oben im README | Zustand des letzten Laufs auf `main`: `passing` / `failing`. Achtung: bis zu 5 Minuten Verzögerung (Browser-Cache), neu laden mit Strg+F5 |
+| **DoD-Abzeichen** oben im README | Fünf Abzeichen, eins pro automatisch geprüftem DoD-Punkt: `passing` = erfüllt, `failing` oder `no status` = noch nicht erfüllt. Klick aufs Abzeichen → letzter Lauf → **Summary** zeigt, was fehlt. Achtung: bis zu 5 Minuten Verzögerung (Browser-Cache), neu laden mit Strg+F5 |
 | Startseite des Repos, neben dem letzten Commit | ✅ / ❌ / 🟡 (läuft) für diesen Commit |
 | Tab **Actions** | Liste aller Läufe mit Commit-Nachricht, Branch und Ergebnis |
 | **Pull Request** → Bereich *Checks* | Ergebnis für den geplanten Merge |
@@ -28,6 +28,6 @@
 2. Korrigieren, lokal testen.
 3. `git add` → `git commit` → `git push`. Ein neuer Lauf startet automatisch.
 
-Einen Lauf ohne neuen Commit wiederholen: Lauf öffnen → **Re-run jobs**. Oder links den Workflow *Microcloud-CI* wählen → **Run workflow** (das ist der Auslöser `workflow_dispatch`).
+Einen Lauf ohne neuen Commit wiederholen: Lauf öffnen → **Re-run jobs**. Oder links den Workflow *DoD 2 · Microcloud-CI* wählen → **Run workflow** (das ist der Auslöser `workflow_dispatch`).
 
 > Ein roter Lauf ist **kein Misserfolg**, sondern genau das, wofür CI da ist: Der Fehler wurde gefunden, **bevor** er im Betrieb Schaden anrichtet.

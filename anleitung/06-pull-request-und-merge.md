@@ -33,7 +33,11 @@ Schau dir auch den Reiter **Files changed** an: Dort siehst du genau die Zeilen,
 
 Erst wenn alle Checks grün sind: **Merge pull request** → **Confirm merge**.
 
-Danach startet die CI automatisch noch einmal, jetzt für `main`. Prüfe im Tab **Actions**, dass auch dieser Lauf grün ist, und ob das Abzeichen im README auf **passing** steht.
+Danach startet die CI automatisch noch einmal, jetzt für `main`. Prüfe im Tab **Actions**, dass auch dieser Lauf grün ist.
+
+**Checkpoint DoD:** Nach dem Merge werden **DoD 4 · Apache auf main** und **DoD 5 · Pull Request** grün. Jetzt sind **alle fünf Abzeichen grün**. Fehlen nur noch die Punkte 6–8 der Definition of Done, die die Lehrkraft prüft.
+
+> Hast du versehentlich gemergt, obwohl der Check rot war? Dann bleibt **DoD 5** rot. Korrigiere den Fehler auf `dev`, stelle einen neuen Pull Request und merge diesmal erst nach grünem Check.
 
 *Optional:* GitHub bietet nach dem Merge **Delete branch** an. Der Branch `dev` wird nicht mehr gebraucht, die Commits bleiben in `main` erhalten.
 
@@ -63,7 +67,7 @@ git log --oneline --graph
 
 1. `compose.yml` ändern → lokal testen → `git add`/`git commit` → `git push` auf `dev` → CI testet automatisch → Pull Request nach `main` → CI testet den PR → Merge nach grünem Test → CI auf `main` → auf dem Server `git pull` + `docker compose up -d`.
 2. Die Statusseite wäre im Betrieb durch die Apache-Standardseite „It works!“ ersetzt worden. Der Dienst hätte geantwortet, aber den falschen Inhalt geliefert. Eine Überwachung, die nur den Port prüft, hätte den Fehler nicht einmal bemerkt.
-3. Absprachen und Teamdisziplin, Code-Reviews durch eine zweite Person und die gut sichtbaren Checks am PR. Größere Teams lassen GitHub die Regel zusätzlich technisch durchsetzen. Hier gilt sie als Konvention.
+3. Absprachen und Teamdisziplin, Code-Reviews durch eine zweite Person und die gut sichtbaren Checks am PR. Größere Teams lassen GitHub die Regel zusätzlich technisch durchsetzen. Hier gilt sie als Konvention. Ob sie eingehalten wurde, macht im Nachhinein das Abzeichen **DoD 5** sichtbar: Es prüft, ob der Test vor dem Merge grün war.
 4. Die Konfiguration ist gesichert und versioniert. Jede Änderung ist mit Autor, Zeitpunkt und Begründung nachvollziehbar, alte Stände sind wiederherstellbar. Nach einem Ausfall reichen ein neuer Container, `git clone` und `docker compose up -d`, und der Dienst läuft wieder (Infrastructure as Code).
 
 </details>

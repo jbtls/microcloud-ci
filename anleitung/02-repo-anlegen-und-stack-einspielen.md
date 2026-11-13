@@ -18,7 +18,7 @@
 
 Öffne in deinem neuen Repo den Tab **Actions**. Wahrscheinlich ist dort schon ein erster Lauf **rot** mit der Meldung *„Keine Compose-Datei gefunden“*. Das ist richtig so: Dein Stack fehlt ja noch.
 
-> Das Abzeichen oben im README kann noch **grau** sein, denn es hinkt bis zu 5 Minuten hinterher. Maßgeblich ist der Tab **Actions**.
+> Die fünf DoD-Abzeichen oben im README sind jetzt rot oder grau, das heißt „noch nicht erfüllt“. Sie hinken bis zu 5 Minuten hinterher. Maßgeblich ist der Tab **Actions**.
 
 > **Template statt Fork:** Dein Repo ist eine **Kopie mit eigener Geschichte**. Es hängt nicht an der Vorlage, und deine Pull Requests bleiben in deinem Repo.
 
@@ -81,6 +81,8 @@ git log --oneline
 1. Öffne auf GitHub den Tab **Actions**. Oben steht ein Lauf mit deiner Commit-Nachricht.
 2. Klicke ihn an, dann den Job **Compose-Stack testen (Port 8085)**.
 3. Warte, bis er fertig ist. Er wird **rot**. 😱 Keine Sorge, das ist Absicht.
+
+**Checkpoint DoD:** Das Abzeichen **DoD 1 · Repo** ist jetzt grün, denn dein Repo ist öffentlich, aus der Vorlage und enthält `compose.yml` und `html/`. **DoD 2 · Microcloud-CI** bleibt rot, bis Phase 3 erledigt ist.
 
 Wie du ein CI-Log liest: [Hilfe – CI-Log lesen](../hilfe/ci-log-lesen.md)
 

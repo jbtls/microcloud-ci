@@ -1,6 +1,10 @@
 # TechNova Micro-Cloud – Projektauftrag „Stack unter Versionskontrolle mit CI“
 
-[![Microcloud-CI](../../actions/workflows/microcloud-ci.yml/badge.svg?branch=main)](../../actions/workflows/microcloud-ci.yml?query=branch%3Amain)
+[![DoD 1 · Repo](../../actions/workflows/dod-1-repo.yml/badge.svg?branch=main)](../../actions/workflows/dod-1-repo.yml)
+[![DoD 2 · Microcloud-CI](../../actions/workflows/microcloud-ci.yml/badge.svg?branch=main)](../../actions/workflows/microcloud-ci.yml?query=branch%3Amain)
+[![DoD 3 · Branch dev](../../actions/workflows/dod-3-branch-dev.yml/badge.svg?branch=dev)](../../actions/workflows/dod-3-branch-dev.yml)
+[![DoD 4 · Apache auf main](../../actions/workflows/dod-4-apache-main.yml/badge.svg?branch=main)](../../actions/workflows/dod-4-apache-main.yml)
+[![DoD 5 · Pull Request](../../actions/workflows/dod-5-pull-request.yml/badge.svg?branch=main)](../../actions/workflows/dod-5-pull-request.yml)
 
 > [!IMPORTANT]
 > **Starte hier: Öffne dein [Lern-Kanban-Board](https://jbtls.github.io/microcloud-ci/kanban/).**
@@ -9,10 +13,13 @@
 > **Lernfeld 10 – Serverdienste bereitstellen und Administrationsaufgaben automatisieren**
 > Projektwoche KW47 · ca. 6–8 Unterrichtsstunden · Einzelarbeit, Austausch im Team ausdrücklich erwünscht
 
-Das Abzeichen oben zeigt den Zustand deines Projekts auf `main`: **grau** = noch kein Lauf, **rot** (`failing`) = der automatische Test schlägt fehl, **grün** (`passing`) = alles in Ordnung.
+Die fünf Abzeichen oben zeigen, welche Punkte der [Definition of Done](#definition-of-done) schon erfüllt sind. Die Nummer auf dem Abzeichen ist die Nummer in der DoD-Tabelle.
+**Grün** (`passing`) = erfüllt, **rot** (`failing`) oder **grau** (`no status`) = noch nicht erfüllt.
 
-- Direkt nach dem Erstellen deines Repos ist es **rot**: Dein Stack fehlt ja noch (Phase 2). Das ist normal.
-- Das Abzeichen aktualisiert sich mit **bis zu 5 Minuten Verzögerung**, weil der Browser das Bild zwischenspeichert. Notfalls die Seite neu laden (Strg+F5). Den aktuellen Stand zeigt immer der Tab **Actions**.
+- Direkt nach dem Erstellen deines Repos sind alle Abzeichen rot oder grau. Das ist normal, denn dein Stack fehlt ja noch (Phase 2). Mit jeder Phase wird eins mehr grün.
+- Jedes Abzeichen wird unabhängig geprüft. Ein rotes Abzeichen beeinflusst die anderen nicht.
+- Klick auf ein Abzeichen: Im letzten Lauf steht unter **Summary**, was noch fehlt.
+- Die Abzeichen aktualisieren sich mit **bis zu 5 Minuten Verzögerung**, weil der Browser die Bilder zwischenspeichert. Notfalls die Seite neu laden (Strg+F5). Den aktuellen Stand zeigt immer der Tab **Actions**.
 
 ---
 
@@ -68,19 +75,20 @@ Egal welchen Weg du wählst: Deine Aufgaben verwaltest du im **[Lern-Kanban-Boar
 
 ## Definition of Done
 
-Dein Projekt ist fertig, wenn **alle** Punkte erfüllt sind:
+Dein Projekt ist fertig, wenn **alle acht** Punkte erfüllt sind. Die Punkte 1–5 prüft GitHub automatisch, jeder hat sein eigenes Abzeichen oben im README. Die Punkte 6–8 prüft die Lehrkraft.
 
-- [ ] Dein Repository ist **öffentlich** (public) und aus der Vorlage erstellt.
-- [ ] Es enthält deine `compose.yml` und deinen Ordner `html/` – aber **keine** Laufzeitdaten (`kuma-data/`).
-- [ ] Der Webserver wird auf **Port 8085** veröffentlicht.
-- [ ] Auf `main` läuft der Webserver mit **Apache httpd** und liefert **deine** `html/index.html` aus.
-- [ ] Die Umstellung auf Apache ist über einen **Pull Request** von `dev` nach `main` gemergt worden, **nachdem** der Test grün war.
-- [ ] Das Abzeichen oben im README steht auf **passing**.
-- [ ] Dein LXC-Container läuft mit genau dem Stand von `main` (`git pull` + `docker compose up -d`).
-- [ ] Die Fragen aus [Phase 4](anleitung/04-workflow-verstehen.md) sind beantwortet (Heft oder `antworten.md` im Repo).
-- [ ] Alle Pflichtkarten im [Kanban-Board](#dein-lern-kanban-board) stehen auf **Done**.
+| Nr. | Definition of Done | Nachweis | Phase |
+|---|---|---|---|
+| **1** | Dein Repository ist **öffentlich** und aus der Vorlage erstellt. Es enthält deine `compose.yml` und deinen Ordner `html/`, aber **keine** Laufzeitdaten (`kuma-data/`). | Abzeichen **DoD 1 · Repo** | 2 |
+| **2** | Auf `main` veröffentlicht dein Stack **Port 8085** und liefert **deine** `html/index.html` aus. | Abzeichen **DoD 2 · Microcloud-CI** | 3 |
+| **3** | Die Umstellung wird auf einem eigenen Branch **`dev`** mit eigener Änderung vorbereitet. | Abzeichen **DoD 3 · Branch dev** | 5 |
+| **4** | Auf `main` läuft der Webserver mit **Apache httpd**. | Abzeichen **DoD 4 · Apache auf main** | 6 |
+| **5** | Die Umstellung ist über einen **Pull Request** von `dev` nach `main` gemergt worden, **nachdem** der Test grün war. | Abzeichen **DoD 5 · Pull Request** | 6 |
+| **6** | Dein LXC-Container läuft mit genau dem Stand von `main` (`git pull` + `docker compose up -d`). | prüft die Lehrkraft (z. B. `curl -I` im Unterricht) | 6 |
+| **7** | Die Fragen aus [Phase 4](anleitung/04-workflow-verstehen.md) sind beantwortet (Heft oder `antworten.md` im Repo). | prüft die Lehrkraft | 4 |
+| **8** | Alle Pflichtkarten im [Kanban-Board](#dein-lern-kanban-board) stehen auf **Done**. | prüft die Lehrkraft (Board zeigen) | alle |
 
-**Abgabe (Moodle):** der Link zu deinem Repository und der Link zu deinem gemergten Pull Request.
+**Abgabe (Moodle):** der Link zu deinem Repository (alle fünf Abzeichen grün) und der Link zu deinem gemergten Pull Request.
 
 ---
 

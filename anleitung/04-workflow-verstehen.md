@@ -33,6 +33,13 @@ Beantworte die Fragen im Heft oder in einer neuen Datei `antworten.md` in deinem
 10. Ist das, was dieser Workflow tut, **Continuous Integration**, **Continuous Delivery** oder **Continuous Deployment**? Begründe.
 11. Nenne zwei Vorteile, die die TechNova GmbH durch diesen automatischen Test hat, im Vergleich dazu, dass jeder Admin „mal kurz mit `curl` testet“.
 
+## Teil D (für Experten): Die DoD-Abzeichen
+
+Neben `microcloud-ci.yml` liegen im Ordner `.github/workflows/` vier weitere Workflows (`dod-1-repo.yml`, `dod-3-branch-dev.yml`, `dod-4-apache-main.yml`, `dod-5-pull-request.yml`). Ihre Prüfungen stehen als Skripte in `.github/dod/`.
+
+12. Warum wird `dod-3-branch-dev.yml` bei einem Push auf `dev` ausgelöst, die anderen DoD-Workflows aber bei einem Push auf `main`? Warum ist sein Abzeichen im README mit `?branch=dev` eingebunden?
+13. `dod-5-pull-request.sh` fragt die GitHub-API ab, statt etwas im Code zu prüfen. Welche Informationen braucht es, um zu entscheiden, ob „erst nach grünem Test gemergt“ wurde?
+
 <details>
 <summary>Lösung anzeigen</summary>
 
@@ -47,6 +54,8 @@ Beantworte die Fragen im Heft oder in einer neuen Datei `antworten.md` in deinem
 9. Step 10 sorgt für ein sauberes Ende (Container und Netzwerke werden entfernt, Logs abgeschlossen). Auf **selbst gehosteten** Runnern, die wiederverwendet werden, würden sonst Container liegen bleiben und Ports blockieren. Aufräumen gehört zu jedem sauberen Test.
 10. **Continuous Integration**: Jede Änderung wird automatisch gebaut und getestet. Delivery (Bereitstellen eines fertigen Artefakts, z. B. eines Images in einer Registry) und Deployment (automatisches Ausrollen auf den Server) passieren hier nicht. Den LXC aktualisierst du selbst mit `git pull`.
 11. Zum Beispiel: Der Test läuft **bei jeder Änderung** und wird nicht vergessen. Er läuft **immer gleich** in einer sauberen Umgebung („bei mir geht's“ zählt nicht). Fehler fallen **vor** dem Betrieb auf, das Ergebnis ist **dokumentiert und für alle sichtbar** (Haken am Commit, Abzeichen).
+12. Ein Abzeichen zeigt den letzten Lauf auf **einem** Branch. DoD 3 soll anzeigen, ob es `dev` gibt, also muss die Prüfung dort laufen, wo `dev` gepusht wird, und das Abzeichen muss die Läufe auf `dev` anzeigen. Solange es keinen `dev` gibt, gibt es keinen Lauf, dann ist das Abzeichen grau. Apache und Pull Request betreffen dagegen den Betriebsstand, also `main`.
+13. Den zuletzt gemergten Pull Request von `dev` nach `main` mit seinem Merge-Zeitpunkt (`merged_at`) und seinem letzten Commit (`head.sha`). Dazu das Ergebnis des Checks „Compose-Stack testen (Port 8085)“ für genau diesen Commit, mit Zeitpunkt (`completed_at`). Grün ist DoD 5 nur, wenn der Check erfolgreich war **und** vor dem Merge fertig war.
 
 </details>
 

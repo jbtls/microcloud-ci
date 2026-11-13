@@ -65,7 +65,7 @@ git push
 
 Öffne auf GitHub den Tab **Actions** und beobachte den neuen Lauf. Wenn alles stimmt, bekommt er einen **grünen Haken** ✅.
 
-Öffne außerdem die Startseite deines Repos: Das Abzeichen ganz oben im README zeigt jetzt **passing**.
+**Checkpoint DoD:** Öffne die Startseite deines Repos. Die Abzeichen **DoD 1** und **DoD 2** sind jetzt grün (`passing`). **DoD 3–5** bleiben noch grau bzw. rot, die erledigst du in Phase 5 und 6.
 
 Klicke im grünen Lauf auf **Summary**. Unten steht der **Steckbrief** deines Stacks. Notiere, welcher Webserver im Feld *Server* angegeben ist.
 
