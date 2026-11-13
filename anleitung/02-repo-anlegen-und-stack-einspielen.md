@@ -18,6 +18,8 @@
 
 Öffne in deinem neuen Repo den Tab **Actions**. Wahrscheinlich ist dort schon ein erster Lauf **rot** mit der Meldung *„Keine Compose-Datei gefunden“*. Das ist richtig so: Dein Stack fehlt ja noch.
 
+> Das Abzeichen oben im README kann noch **grau** sein, denn es hinkt bis zu 5 Minuten hinterher. Maßgeblich ist der Tab **Actions**.
+
 > **Template statt Fork:** Dein Repo ist eine **Kopie mit eigener Geschichte**. Es hängt nicht an der Vorlage, und deine Pull Requests bleiben in deinem Repo.
 
 ## Schritt 2: Repository auf den LXC klonen

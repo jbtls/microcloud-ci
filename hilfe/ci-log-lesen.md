@@ -6,7 +6,7 @@
 
 | Ort | Was du siehst |
 |---|---|
-| **Abzeichen** oben im README | Zustand des letzten Laufs auf `main`: `passing` / `failing` |
+| **Abzeichen** oben im README | Zustand des letzten Laufs auf `main`: `passing` / `failing`. Achtung: bis zu 5 Minuten Verzögerung (Browser-Cache), neu laden mit Strg+F5 |
 | Startseite des Repos, neben dem letzten Commit | ✅ / ❌ / 🟡 (läuft) für diesen Commit |
 | Tab **Actions** | Liste aller Läufe mit Commit-Nachricht, Branch und Ergebnis |
 | **Pull Request** → Bereich *Checks* | Ergebnis für den geplanten Merge |

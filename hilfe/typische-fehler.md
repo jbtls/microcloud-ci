@@ -37,4 +37,9 @@
 | 6 · Erreichbarkeit | Der Container läuft, aber hinter Port 8085 antwortet niemand. Stimmt der **Container**-Port? |
 | 7 · Inhalt prüfen | Der Server antwortet, liefert aber nicht deine `html/index.html`. Stimmt der Volume-Pfad? |
 
+| Symptom | Ursache | Lösung |
+|---|---|---|
+| Rot in Schritt 2 **direkt nach dem Erstellen** des Repos | Normal: Dein Repo enthält bis jetzt nur die Vorlage, noch keine `compose.yml`. | Weiter mit [Phase 2](../anleitung/02-repo-anlegen-und-stack-einspielen.md), Stack einspielen und pushen. |
+| Abzeichen zeigt einen **alten Stand** oder *no status* | Der Browser speichert das Abzeichen-Bild bis zu 5 Minuten zwischen. | Seite mit Strg+F5 neu laden. Der Tab **Actions** zeigt immer den aktuellen Stand. |
+
 Mehr dazu: [CI-Log lesen](ci-log-lesen.md)

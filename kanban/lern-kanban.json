@@ -21,12 +21,8 @@
         "title": "In Bearbeitung"
       },
       {
-        "id": "stuck",
-        "title": "Ich komme nicht weiter"
-      },
-      {
         "id": "done",
-        "title": "Erledigt"
+        "title": "Done"
       }
     ],
     "categories": [

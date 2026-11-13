@@ -1,11 +1,18 @@
 # TechNova Micro-Cloud – Projektauftrag „Stack unter Versionskontrolle mit CI“
 
-[![Microcloud-CI](../../actions/workflows/microcloud-ci.yml/badge.svg)](../../actions/workflows/microcloud-ci.yml)
+[![Microcloud-CI](../../actions/workflows/microcloud-ci.yml/badge.svg?branch=main)](../../actions/workflows/microcloud-ci.yml?query=branch%3Amain)
+
+> [!IMPORTANT]
+> **Starte hier: Öffne dein [Lern-Kanban-Board](https://jbtls.github.io/microcloud-ci/kanban/).**
+> Das Board ist dein Arbeitsplan für die Woche: Jede Karte ist eine Aufgabe, mit Checkliste und Link zur passenden Anleitung. Daran siehst du jederzeit, wie weit du bist. [So arbeitest du damit](#dein-lern-kanban-board)
 
 > **Lernfeld 10 – Serverdienste bereitstellen und Administrationsaufgaben automatisieren**
 > Projektwoche KW47 · ca. 6–8 Unterrichtsstunden · Einzelarbeit, Austausch im Team ausdrücklich erwünscht
 
-Das Abzeichen oben zeigt den Zustand deines Projekts: **grau** = noch kein Lauf, **rot** (`failing`) = der automatische Test schlägt fehl, **grün** (`passing`) = alles in Ordnung.
+Das Abzeichen oben zeigt den Zustand deines Projekts auf `main`: **grau** = noch kein Lauf, **rot** (`failing`) = der automatische Test schlägt fehl, **grün** (`passing`) = alles in Ordnung.
+
+- Direkt nach dem Erstellen deines Repos ist es **rot**: Dein Stack fehlt ja noch (Phase 2). Das ist normal.
+- Das Abzeichen aktualisiert sich mit **bis zu 5 Minuten Verzögerung**, weil der Browser das Bild zwischenspeichert. Notfalls die Seite neu laden (Strg+F5). Den aktuellen Stand zeigt immer der Tab **Actions**.
 
 ---
 
@@ -22,6 +29,29 @@ Zwei neue Vorgaben gelten ab sofort:
 
 ---
 
+## Dein Lern-Kanban-Board
+
+**👉 [jbtls.github.io/microcloud-ci/kanban/](https://jbtls.github.io/microcloud-ci/kanban/)**
+Offline-Fassung: [`kanban/index.html`](kanban/index.html) in deinem eigenen Repo. Herunterladen und im Browser öffnen, sie funktioniert auch ohne Internet.
+
+So arbeitest du damit:
+
+| Spalte | Bedeutung |
+|---|---|
+| **Zu erledigen** | Hier liegen zu Beginn alle Aufgaben, sortiert nach Phasen. |
+| **In Bearbeitung** | Daran arbeitest du gerade. Am besten immer nur **eine** Karte. |
+| **Done** | Fertig, und alle Punkte der Checkliste sind abgehakt. |
+
+- Ein Klick auf eine Karte öffnet die **Details**: Ziel, Checkliste, Links zu Anleitung und Hilfeseiten, geschätzte Zeit. Mit der Zeiterfassung kannst du festhalten, wie lange du gebraucht hast.
+- Der Reiter **Zeitplan** zeigt die Woche als Balkendiagramm (Gantt) und welche Aufgabe auf welcher aufbaut.
+- **Du hängst fest?** Lies zuerst [Typische Fehler und Lösungen](hilfe/typische-fehler.md), frage danach im Team und erst dann die Lehrkraft.
+
+> [!WARNING]
+> **Dein Fortschritt wird nur in diesem Browser gespeichert.** An Schul-PCs geht er beim Abmelden verloren, und deine Lehrkraft sieht dein Board nicht automatisch.
+> Klicke deshalb am Ende jeder Stunde auf **Export** und speichere die Datei, z. B. als `kanban-fortschritt.json` in deinem Repo (committen und pushen). Beim nächsten Mal lädst du sie über **Import** wieder. Bei Rückfragen zeigst du dein Board auf dem Bildschirm.
+
+---
+
 ## Wähle deinen Weg
 
 Alle drei Wege führen zum selben Ergebnis (siehe *Definition of Done*). Du darfst jederzeit wechseln.
@@ -32,7 +62,7 @@ Alle drei Wege führen zum selben Ergebnis (siehe *Definition of Done*). Du darf
 | **Standard** | Du willst klare Ziele pro Phase, findest den Weg aber selbst. | Die [Phasenübersicht](#standardauftrag-phasen-mit-zielen) unten + [Hilfeseiten](hilfe/) |
 | **Basis** | Du möchtest jeden Schritt angeleitet. | Die [geführten Anleitungen](anleitung/) – Schritt für Schritt mit allen Befehlen |
 
-Die Projektplanung läuft über das **[Lern-Kanban-Board](https://jbtls.github.io/microcloud-ci/kanban/)**: Ziehe dort jede Karte von „Zu erledigen“ über „In Arbeit“ nach „Erledigt“ – so behältst du (und deine Lehrkraft) den Überblick.
+Egal welchen Weg du wählst: Deine Aufgaben verwaltest du im **[Lern-Kanban-Board](#dein-lern-kanban-board)**, von „Zu erledigen“ über „In Bearbeitung“ nach „Done“.
 
 ---
 
@@ -48,6 +78,7 @@ Dein Projekt ist fertig, wenn **alle** Punkte erfüllt sind:
 - [ ] Das Abzeichen oben im README steht auf **passing**.
 - [ ] Dein LXC-Container läuft mit genau dem Stand von `main` (`git pull` + `docker compose up -d`).
 - [ ] Die Fragen aus [Phase 4](anleitung/04-workflow-verstehen.md) sind beantwortet (Heft oder `antworten.md` im Repo).
+- [ ] Alle Pflichtkarten im [Kanban-Board](#dein-lern-kanban-board) stehen auf **Done**.
 
 **Abgabe (Moodle):** der Link zu deinem Repository und der Link zu deinem gemergten Pull Request.
 
@@ -63,10 +94,10 @@ Wenn du fertig bist: Erkläre in einer `antworten.md`, **was** der Workflow in j
 
 ## Standardauftrag (Phasen mit Zielen)
 
-| Phase | Ziel – woran erkennst du, dass du fertig bist? | Zeit | Basis-Anleitung |
+| Phase | Ziel – woran erkennst du, dass du fertig bist? | Zeit | Anleitung |
 |---|---|---|---|
 | **HA** | Dein GitHub-Account ist eingerichtet, die E-Mail bestätigt, **2FA aktiv**, die Recovery-Codes sind gesichert. *(Hausaufgabe vor der Projektwoche)* | zu Hause | [00 – Hausaufgabe GitHub-Account](anleitung/00-hausaufgabe-github-account.md) |
-| **0** | Du kennst Ziel, Ablauf und *Definition of Done* und hast das Kanban-Board geöffnet. | 30′ | – (Einstieg im Plenum) |
+| **0** | Du kennst Ziel, Ablauf und *Definition of Done*. Dein Kanban-Board ist geöffnet und die Karte *Projektstart* steht in **In Bearbeitung**. | 30′ | [Lern-Kanban-Board](#dein-lern-kanban-board) (Einstieg im Plenum) |
 | **1** | Auf deinem LXC ist Git eingerichtet (`git config`), ein eigener **SSH-Schlüssel** ist bei GitHub hinterlegt und `ssh -T git@github.com` begrüßt dich mit deinem Benutzernamen. | 30′ | [01 – SSH-Schlüssel](anleitung/01-ssh-key.md) |
 | **2** | Dein öffentliches Repo ist aus der Vorlage erzeugt und nach `~/microcloud` geklont. Dein Stack aus Modul 4 ist committet und gepusht. Der erste CI-Lauf ist **rot** – und du kannst erklären, warum. | 45′ | [02 – Repo anlegen & Stack einspielen](anleitung/02-repo-anlegen-und-stack-einspielen.md) |
 | **3** | Der Stack veröffentlicht Port **8085**, läuft lokal und die CI ist **grün**. | 30′ | [03 – Port anpassen, erster grüner Build](anleitung/03-port-anpassen-erster-gruener-build.md) |
