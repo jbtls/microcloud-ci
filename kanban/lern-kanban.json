@@ -65,7 +65,7 @@
       {
         "id": "ha",
         "label": "KW46 – Hausaufgabe",
-        "start": "2026-11-13",
+        "start": "2026-11-09",
         "end": "2026-11-15",
         "hoursPerWeek": 1,
         "color": "#64748B"
@@ -74,9 +74,17 @@
         "id": "kw47",
         "label": "KW47 – Projektwoche",
         "start": "2026-11-16",
-        "end": "2026-11-20",
+        "end": "2026-11-22",
         "hoursPerWeek": 6,
         "color": "#2563EB"
+      },
+      {
+        "id": "zus",
+        "label": "Zusatz (optional)",
+        "start": "2026-11-16",
+        "end": "2026-11-22",
+        "hoursPerWeek": 4,
+        "color": "#D97706"
       }
     ]
   },
@@ -533,7 +541,7 @@
       "id": "z1",
       "parentId": null,
       "categoryId": "zus",
-      "phaseId": "kw47",
+      "phaseId": "zus",
       "columnId": "todo",
       "title": "Zusatz A: Wiki-Projekt cicd-test (Release in die Registry)",
       "body": "## Ziel\nEine Pipeline, die ein eigenes Image baut, testet und als Release in der GitHub Container Registry veröffentlicht (Continuous Delivery).\n\n## Hinweise\n- Fork **öffentlich** lassen\n- Im Fork im Tab *Actions* die Workflows freischalten\n- Bei Pull Requests als *base repository* den eigenen Fork wählen",
@@ -571,7 +579,7 @@
       "id": "z2",
       "parentId": null,
       "categoryId": "zus",
-      "phaseId": "kw47",
+      "phaseId": "zus",
       "columnId": "todo",
       "title": "Zusatz B: Eigener CI-Test für Uptime Kuma",
       "body": "## Ziel\nDer Workflow prüft zusätzlich, ob Uptime Kuma auf Port 3001 antwortet. Entwickelt auf einem eigenen Branch und per Pull Request gemergt.",
@@ -610,7 +618,7 @@
       "id": "z3",
       "parentId": null,
       "categoryId": "zus",
-      "phaseId": "kw47",
+      "phaseId": "zus",
       "columnId": "todo",
       "title": "Zusatz C: Release v1.0.0 erstellen",
       "body": "## Ziel\nDer fertige Stand ist mit dem Tag `v1.0.0` markiert und als GitHub-Release mit Beschreibung veröffentlicht.",
