@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "boardId": "board_lf10_kw47_microcloud_ci",
+  "boardId": "board_lf10_kw47_microcloud_ci_v2",
   "config": {
     "title": "LF10 – Microcloud-Stack mit Git, GitHub und CI",
     "subtitle": "Projektwoche KW47 · 12ITS · Hausaufgabe in KW46",
