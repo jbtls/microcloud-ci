@@ -9,11 +9,19 @@
 
 `main` ist der **Betriebsstand**: Was dort liegt, muss funktionieren. Eine größere Umstellung wie der Wechsel des Webservers wird deshalb auf einem eigenen **Branch** (Zweig) vorbereitet und getestet. Erst wenn alles grün ist, wird sie nach `main` übernommen (Phase 6).
 
-```text
-main  ●───●───●─────────────────────────●   ← Betriebsstand (nginx), bleibt stabil
-               \                        /
-dev             ●──── ✗ ────── ✓ ──────     ← Umbau auf Apache, darf zwischendurch rot sein
+```mermaid
+gitGraph
+    commit id: "Stack übernommen"
+    commit id: "Port 8085 (grün)"
+    branch dev
+    checkout dev
+    commit id: "httpd (rot)"
+    commit id: "Volume-Pfad (grün)"
+    checkout main
+    merge dev id: "Merge nach grünem Test"
 ```
+
+`main` (oben) ist der Betriebsstand mit nginx und bleibt stabil. Auf `dev` (unten) läuft der Umbau auf Apache und darf zwischendurch rot sein.
 
 ## Schritt 1: Branch anlegen und wechseln
 

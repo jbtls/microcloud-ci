@@ -4,10 +4,12 @@
 
 ## Die drei Bereiche von Git
 
-```text
- Arbeitsverzeichnis  ──git add──►  Staging-Bereich  ──git commit──►  lokales Repository  ──git push──►  GitHub (origin)
-   (deine Dateien)                 (vorgemerkt)                     (.git, Versionen)                   (Remote)
-                                                                                      ◄──git pull───
+```mermaid
+flowchart LR
+    A["Arbeitsverzeichnis<br/>(deine Dateien)"] -- "git add" --> B["Staging-Bereich<br/>(vorgemerkt)"]
+    B -- "git commit" --> C["lokales Repository<br/>(.git, Versionen)"]
+    C -- "git push" --> D["GitHub (origin)<br/>(Remote)"]
+    D -- "git pull / git clone" --> A
 ```
 
 ## Einrichten (einmalig)

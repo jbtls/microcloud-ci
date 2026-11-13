@@ -7,10 +7,14 @@
 
 ## Der Arbeitsablauf, den du ab jetzt immer nutzt
 
-```text
-  ändern  ──►  lokal testen  ──►  git add / commit  ──►  git push  ──►  CI prüft  ──►  ✅ / ❌
-    ▲                                                                                  │
-    └──────────────────────────────── bei ❌: Log lesen, korrigieren ◄─────────────────┘
+```mermaid
+flowchart LR
+    A[ändern] --> B[lokal testen]
+    B --> C["git add / git commit"]
+    C --> D[git push]
+    D --> E{CI prüft}
+    E -- grün --> F([fertig])
+    E -- "rot: Log lesen, korrigieren" --> A
 ```
 
 ## Schritt 1: Port ändern
